@@ -1,15 +1,14 @@
-import peopleContact from './contact.module.css';
-import { HiUser } from 'react-icons/hi';
-import { FaPhoneAlt } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice';
+import peopleContact from "./contact.module.css";
+import { HiUser } from "react-icons/hi";
+import { FaPhoneAlt } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsOps";
 
 const Contact = ({ name, number, id }) => {
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch()
+  const handleDelete = () => dispatch(deleteContact(id));
 
-const handleDelete = () => dispatch(deleteContact(id))
-  
   return (
     <li className={peopleContact.listInfo}>
       <p className={peopleContact.containerSvg}>
